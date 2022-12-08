@@ -8,7 +8,7 @@ module.exports = {
   // function for our authenticated routes
   authMiddleware: function ({ req }) {
     // allows token to be sent via  req.query or headers
-    let token = req.query.token || req.headers.authorization || req.body.token;
+    let token = req.body.token || req.query.token || req.headers.authorization;
 
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
@@ -24,13 +24,10 @@ module.exports = {
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-    } catch {
-      console.log('Invalid token');
+    } catch (err) {
+      console.log(err);
       // return res.status(400).json({ message: 'invalid token!' });
     }
-
-    // send to next endpoint
-    // next();
     return req;
   },
   signToken: function ({ username, email, _id }) {
