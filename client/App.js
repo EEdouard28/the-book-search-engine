@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowseRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloProvider,
   ApolloClient,
