@@ -3,18 +3,13 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Auth from '../utils/auth';
 
-// const client = new ApolloClient({
-//   uri: 'https://flyby-gateway.herokuapp.com/',
-//   cache: new InMemoryCache(),
-// });
+const client = new ApolloClient({
+  uri: 'https://booksearchengine1990.herokuapp.com/',
+  cache: new InMemoryCache(),
+});
 
 const AppNavbar = () => {
   // set modal display state
